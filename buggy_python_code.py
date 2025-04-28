@@ -3,10 +3,10 @@
 import flask
 import yaml
 
-app = flask.Flask(__name__)
+APP = flask.Flask(__name__)
 
 
-@app.route("/")
+@APP.route("/")
 def index():
     version = flask.request.args.get("urllib_version")
     url = flask.request.args.get("url")
@@ -14,6 +14,8 @@ def index():
 
 
 CONFIG = {"API_KEY": "771df488714111d39138eb60df756e6b"}
+
+#docstring
 class Person(object):
     def __init__(self, name):
         self.name = name
@@ -30,7 +32,7 @@ def fetch_website(urllib_version, url):
 
     try:
         http = urllib.PoolManager()
-        # r = http.request('GET', url)
+        http.request('GET', url)
     except:
         print('Exception')
 
